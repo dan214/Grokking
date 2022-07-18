@@ -12,10 +12,11 @@ namespace Grokking
         public static int GetTripletSum()
         {
             List<int[]> triplets = new();
+            List<int> items = new();
             int target = 2;
-            int smallestSum = Int32.MaxValue;
+            int smallestSum = int.MaxValue;
 
-            int[] arr = new int[] { -2, 0, 1, 2 };
+            int[] arr = new int[] { 1, 0, 1, 1 };
             Array.Sort(arr);
 
             for (int i = 0; i < arr.Length; i++)
@@ -25,34 +26,33 @@ namespace Grokking
                     continue;
                 }
 
-                smallestSum = Search_Pair(arr, arr[i], i + 1, triplets, smallestSum);
+                smallestSum = Search_Pair(arr, arr[i], i + 1, smallestSum, items, 100);
             }
 
             return 0;
         }
 
-        private static int Search_Pair(int[] arr, int targetValue, int left, List<int[]> triplets, int smallestSum)
+        private static int Search_Pair(int[] arr, int targetValue, int left, int smallestSum, List<int> items, int targetSum)
         {
             var right = arr.Length - 1;
 
             while (left < right)
             {
                 var currentSum = arr[left] + arr[right] + targetValue;
-                if (currentSum < smallestSum)
+                var targetDiff = targetSum - currentSum;
+
+                if (targetDiff == 0)
                 {
-                    smallestSum = currentSum;
-                    left++;
-                    right--;
-                    while (left < right && arr[left] == arr[left - 1])
-                    {
-                        left++;
-                    }
-                    while (left < right && arr[right] == arr[right + 1])
-                    {
-                        right--;
-                    }
+                    return currentSum;
                 }
-                else if (targetValue > currentSum)
+
+                if (Math.Abs(targetDiff) < Math.Abs(smallestSum) ||
+                    Math.Abs(targetDiff) == Math.Abs(smallestSum) && targetDiff > smallestSum)
+                {
+                    smallestSum = targetDiff;
+                }
+
+                if (targetDiff > 0)
                 {
                     left++;
                 }
@@ -62,7 +62,7 @@ namespace Grokking
                 }
             }
 
-            return smallestSum;
+            return targetSum - smallestSum;
         }
     }
 }
