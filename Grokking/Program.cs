@@ -7,14 +7,16 @@ namespace Grokking // Note: actual namespace depends on the project name.
     {
         static void Main(string[] args)
         {
-            int[] result = MakeSquares(new int[] {-3, -1, 0, 1, 2});
+            var result = MakeSquares(new int[] {-3, -1, 0, 1, 2});
 
-            for(int i = 0; i < result.Length; i++)
+            foreach (var t in result)
             {
-                Console.WriteLine(result[i]);
+                Console.WriteLine(t);
             }
 
-            TripletCloseToTarget.GetTripletSum();
+            //TripletCloseToTarget.GetTripletSum();
+
+            TripletSumToZero.GetTripletSum();
         }
 
         private static int[] MakeSquares(int[] intArr)

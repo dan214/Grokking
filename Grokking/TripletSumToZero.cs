@@ -12,54 +12,34 @@ namespace Grokking
         {
             List<int[]> triplets = new();
 
-            int[] arr = new int[] { -3, 0, 1, 2, -1, 1, -2 };
+            var arr = new int[] { -1,1,2,3,4 };
+            const int target = 5;
             Array.Sort(arr);
 
-            for (int i = 0; i< arr.Length; i++)
+            for (int i = 0; i< arr.Length - 2; i++)
             {
-                if (i > 0 && arr[i] == arr[i - 1])
+                var right = arr.Length - 1;
+                var left = i + 1;
+
+
+                while (left < right)
                 {
-                    continue;
-                }
 
-                Search_Pair(arr, -arr[i], i + 1, triplets);
-            }
+                    var currentSum = arr[left] + arr[right] + arr[i];
 
-            return 0;
-        }
-
-        private static List<int[]> Search_Pair(int[] arr, int targetSum, int left, List<int[]> triplets)
-        {
-            var right = arr.Length - 1;
-
-            while (left < right)
-            {
-                var currentSum = arr[left] + arr[right];
-                if (currentSum == targetSum)
-                {
-                    triplets.Add(new int[] {-targetSum, arr[left], arr[right] });
-                    left ++;
-                    right --;
-                    while (left < right && arr[left] == arr[left - 1])
+                    if (currentSum < target)
                     {
+                        triplets.Add(new[] { arr[i], arr[left], arr[right]});
                         left++;
                     }
-                    while (left < right && arr[right] == arr[right + 1])
+                    else
                     {
                         right--;
                     }
                 }
-                else if (targetSum > currentSum)
-                {
-                    left++;
-                }
-                else
-                {
-                    right--;
-                }
             }
-            List<int[]> result = new List<int[]>();
-            return result;
+
+            return 0;
         }
     }
 }
