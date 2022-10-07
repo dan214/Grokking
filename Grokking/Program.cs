@@ -15,8 +15,9 @@ namespace Grokking // Note: actual namespace depends on the project name.
             }
 
             //TripletCloseToTarget.GetTripletSum();
+            //TripletSumToZero.GetTripletSum();
 
-            TripletSumToZero.GetTripletSum();
+            SubArraysWithProduct.SubArraysWith();
         }
 
         private static int[] MakeSquares(int[] intArr)
