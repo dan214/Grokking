@@ -10,13 +10,14 @@ namespace Grokking // Note: actual namespace depends on the project name.
             //TripletCloseToTarget.GetTripletSum();
             //TripletSumToZero.GetTripletSum();
             Console.WriteLine("Output");
+            Console.WriteLine(MaxSum.FindMaximum(new int[] { 2, 3, 4, 1, 5 },2));
 
-            var result = Slide.FindAverage(5, new int[] { 1, 3, 2, 6, -1, 4, 1, 8, 2 });
+            //var result = Slide.FindAverage(5, new int[] { 1, 3, 2, 6, -1, 4, 1, 8, 2 });
 
-            foreach (var t in result)
-            {
-                Console.WriteLine(t);
-            }
+            //foreach (var t in result)
+            //{
+            //    Console.WriteLine(t);
+            //}
 
             
         }
