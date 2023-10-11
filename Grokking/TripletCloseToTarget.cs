@@ -11,9 +11,9 @@ namespace Grokking
     {
         public static int GetTripletSum()
         {
-            int K = 5;
+            const int K = 5;
 
-            int[] inputArray = new int[K] {1,2};
+            int[] inputArray = new int[]{1,2};
 
 
             return 0;
