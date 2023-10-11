@@ -10,7 +10,11 @@ namespace Grokking // Note: actual namespace depends on the project name.
             //TripletCloseToTarget.GetTripletSum();
             //TripletSumToZero.GetTripletSum();
             Console.WriteLine("Output");
-            Console.WriteLine(MaxSum.FindMaximum(new int[] { 2, 3, 4, 1, 5 },2));
+            //Console.WriteLine(MaxSum.FindMaximum(new int[] { 2, 3, 4, 1, 5 },2));
+
+            //Console.WriteLine(SmallestSubarray.FindSmallestSubArray(new int[] { 2, 1, 5, 2, 3, 2 }, 7));
+
+            Console.WriteLine(LongestSubstring.FindLongestSubstring("araaci", 2));
 
             //var result = Slide.FindAverage(5, new int[] { 1, 3, 2, 6, -1, 4, 1, 8, 2 });
 
@@ -19,7 +23,7 @@ namespace Grokking // Note: actual namespace depends on the project name.
             //    Console.WriteLine(t);
             //}
 
-            
+
         }
 
         private static int[] MakeSquares(int[] intArr)
