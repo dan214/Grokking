@@ -10,13 +10,12 @@ namespace Grokking
     {
         public static double[] FindAverage(int k, int[] arr)
         {
-            double[] result = new double[k];
+            double[] result = new double[arr.Length - k+1];
             double intermediateResult = 0;
             int windowStart = 0;
-            int windowEnd = 0;
-            for (int i = 0; i < arr.Length; i++)
+            for (int windowEnd = 0; windowEnd < arr.Length; windowEnd++)
             {
-                intermediateResult += arr[i];
+                intermediateResult += arr[windowEnd];
                 if (windowEnd == k-1)
                 {
                     result[windowStart] = intermediateResult/k;
@@ -32,5 +31,6 @@ namespace Grokking
 
             return result;
         }
+
     }
 }
